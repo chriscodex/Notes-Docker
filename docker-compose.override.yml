@@ -1,0 +1,20 @@
+# Este archivo es equivalente al docker-compose solo que funciona solo para mi entorno local
+# el override se combina con el docker compose original
+# El override tiene mayor presencia sobre el compose base
+version: "3.8"
+
+services:
+  app:
+    # Construir la imagen para el servicio (A través del contexto)
+    # Al momento de hacer el build, si hay una imagen base en el ORIGINAL, este build copiará su nombre, 
+    # pero constuirá otra imagen
+    build: .
+
+    environment:
+    # Al momento de hacer el build, ambas variables serán creadas
+    # Variable de entorno
+      OTRA_VARIABLE: "holaa"
+    
+    # Es aconsejable usar los ports en el compose base y no en el override, puede generar errores
+    # En caso se use más contenedores, correr sobre un rango en el compose base
+    

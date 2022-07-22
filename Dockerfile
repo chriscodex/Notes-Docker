@@ -1,4 +1,5 @@
 FROM node:14
+# Dockerfile of app service
 
 # COPY [".", "/usr/src/"] NOT OPTIMAL
 COPY ["package.json","package-lock.json","/usr/src/"]
