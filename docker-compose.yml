@@ -2,14 +2,30 @@ version: "3.8"
 
 services:
   app:
-    image: nodeapp
+    # Construir la imagen para el servicio (A través del contexto)
+    build: .
+
     environment:
+    # Variable de entorno
       MONGO_URL: "mongodb://db:27017/test"
+    
     depends_on:
+    # Servicio del que depende
       - db
+    
     ports:
     # LocalMachine:container
       - "3000:3000"
+    
+    # Compartir archivos
+    volumes:
+      - .:/usr/src
+      # Conservar archivos(No se usa el ":")(Ignorar esta ruta)
+      - /usr/src/node_modules
+    
+    # Agregar un comando por defecto
+    command: npx nodemon --legacy-watch index.js
 
   db:
+    # Construir a partir de una imagen
     image: mongo
