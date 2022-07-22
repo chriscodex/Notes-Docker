@@ -6,6 +6,9 @@ services:
     environment:
       MONGO_URL: "mongodb://db:27017/test"
     depends_on:
+      - db
+    ports:
+    # LocalMachine:container
       - "3000:3000"
 
   db:
