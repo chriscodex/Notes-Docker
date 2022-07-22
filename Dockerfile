@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:14
 
 # COPY [".", "/usr/src/"] NOT OPTIMAL
 COPY ["package.json","package-lock.json","/usr/src/"]
@@ -19,3 +19,4 @@ EXPOSE 3000
 
 # Proceso por defecto que se ejecuta
 CMD ["node","index.js"]
+#CMD ["npx","nodemon","index.js"]
