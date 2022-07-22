@@ -12,3 +12,6 @@ RUN npm install
 
 # Expone el puerto 3000 del contenedor
 EXPOSE 3000
+
+# Proceso por defecto que se ejecuta
+CMD ["node","index.js"]
